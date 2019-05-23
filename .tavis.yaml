@@ -1,0 +1,38 @@
+---
+# need for docker build
+sudo: true
+
+addons:
+  apt:
+    packages:
+      - realpath
+      - ruby
+
+language: go
+branches:
+  only:
+    - master
+    - csi  # remove this once csi-v1.0 becomes master
+
+go: 1.11.x
+
+env:
+  global:
+    - GOLANGCI_VERSION="v1.15.0"
+    - TEST_COVERAGE=stdout
+    - GO_METALINTER_THREADS=1
+    - GO_COVER_DIR=_output
+
+jobs:
+  include:
+    - name: Linter
+      script:
+        - echo "done with testing"
+
+
+deploy:
+  - provider: script
+    on:  # yamllint disable-line rule:truthy
+      all_branches: true
+    script: ./deploy.sh
+
