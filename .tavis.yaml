@@ -2,6 +2,12 @@
 # need for docker build
 sudo: true
 
+addons:
+  apt:
+    packages:
+      - realpath
+      - ruby
+
 language: go
 branches:
   only:
@@ -19,6 +25,9 @@ env:
 
 jobs:
   include:
+    - name: Linter
+      install:
+        - gem install mdl
     - name: Linter
       script:
         - echo "done with testing"
