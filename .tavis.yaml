@@ -2,12 +2,6 @@
 # need for docker build
 sudo: true
 
-addons:
-  apt:
-    packages:
-      - realpath
-      - ruby
-
 language: go
 branches:
   only:

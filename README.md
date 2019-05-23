@@ -1,2 +1,2 @@
 # test-travis
-test how travis behaves on different branches.
+Test how travis behaves on different branches.
