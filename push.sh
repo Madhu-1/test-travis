@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -euo pipefail
-
 export VERSION="latest"
 export DOCKER_REPO=madhupr001/multiarch
 export DOCKER_CLI_EXPERIMENTAL=enabled
