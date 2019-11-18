@@ -4,7 +4,7 @@ set -euo pipefail
 
 export VERSION="latest"
 export DOCKER_REPO=madhupr001/multiarch
-
+export DOCKER_CLI_EXPERIMENTAL=enabled
 docker manifest inspect ${DOCKER_REPO}:${VERSION} >/dev/null && echo "Version ${VERSION} is already exists" && exit 0
 for ARCH_TYPE in amd64 arm64 arm; do
     if [ "$ARCH_TYPE" == "amd64" ]; then
