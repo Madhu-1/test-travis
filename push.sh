@@ -3,6 +3,8 @@
 export VERSION="latest"
 export DOCKER_REPO=madhupr001/multiarch
 export DOCKER_CLI_EXPERIMENTAL=enabled
+echo "${DOCKER_USERNAME}"
+echo ${DOCKER_USERNAME}
 docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
 docker manifest inspect ${DOCKER_REPO}:${VERSION} >/dev/null && echo "Version ${VERSION} is already exists" && exit 0
 for ARCH_TYPE in amd64 arm64 arm; do
