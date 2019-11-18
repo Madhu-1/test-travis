@@ -48,4 +48,5 @@ docker manifest annotate \
     ${DOCKER_REPO}:${VERSION}-arm \
     --os linux --arch arm --variant v7
 
+docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
 docker manifest push ${DOCKER_REPO}:${VERSION}
