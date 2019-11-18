@@ -21,6 +21,6 @@ for ARCH_TYPE in amd64 arm64 arm; do
     fi
 
     # Build image
-    docker build -t $DOCKER_REPO:${VERSION}-${ARCH} --build-arg target=${TARGET} --build-arg arch=${ARCH} .
+    docker build -t $DOCKER_REPO:${VERSION}-${ARCH} --build-arg arch=${ARCH} .
 
 done
