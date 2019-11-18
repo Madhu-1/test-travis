@@ -5,6 +5,7 @@ set -euo pipefail
 export VERSION="latest"
 export DOCKER_REPO=madhupr001/multiarch
 export DOCKER_CLI_EXPERIMENTAL=enabled
+docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
 docker manifest inspect ${DOCKER_REPO}:${VERSION} >/dev/null && echo "Version ${VERSION} is already exists" && exit 0
 for ARCH_TYPE in amd64 arm64 arm; do
     if [ "$ARCH_TYPE" == "amd64" ]; then
@@ -45,5 +46,4 @@ docker manifest annotate \
     ${DOCKER_REPO}:${VERSION}-arm \
     --os linux --arch arm --variant v7
 
-docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
 docker manifest push ${DOCKER_REPO}:${VERSION}
